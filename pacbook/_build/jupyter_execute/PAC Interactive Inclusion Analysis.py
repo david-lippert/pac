@@ -205,7 +205,7 @@ congress116_df = congress116_df.apply(lambda x: x.fillna(0) if x.dtype.kind in '
 #congress116_df = congress116_df.convert_dtypes()
 
 
-# In[16]:
+# In[7]:
 
 
 race_df = congress116_df.groupby(['party','Race']).agg('size').unstack()
@@ -243,7 +243,7 @@ change_index_values(gender_df, "Democrat", "Democrats")
 change_index_values(gender_df, "Republican", "Republican")
 
 
-# In[17]:
+# In[8]:
 
 
 #align PAC data
@@ -283,7 +283,7 @@ TBPAC_merge_df = TBPAC_merge_df.apply(lambda x: x.fillna(0) if x.dtype.kind in '
 NewPAC_merge_df = NewPAC_merge_df.apply(lambda x: x.fillna(0) if x.dtype.kind in 'biufc' else x.fillna(''))
 
 
-# In[18]:
+# In[9]:
 
 
 #subsets
@@ -352,25 +352,25 @@ PAC_gender_df = PAC_gender_df[gender_cols]
 # ## PAC disbursements based on inclusion and diversity. 
 # ### In this analysis we take a closer look at the diversity of the United States overall and the diversity of the current US Congress by party.  We will analyze diversity based on gender and race and compare the parties in general and then dive into the diversity of the specific candidates that received money from the selected PAC.  All of this data is publicly available.
 
-# In[19]:
+# In[10]:
 
 
 display_gender_charts(gender_df.iloc[2:3], "US Population by Gender")
 
 
-# In[20]:
+# In[11]:
 
 
 display_gender_charts(gender_df.iloc[0:2], "Current Congress by Gender")
 
 
-# In[21]:
+# In[12]:
 
 
 display_gender_charts(PAC_gender_df.iloc[0:2], "Percent of PAC Disbursements to Members of the 116th Congress by Gender")
 
 
-# In[22]:
+# In[13]:
 
 
 display_gender_charts(PAC_gender_df.iloc[0:2].sum().to_frame(name='recipients').transpose(), "PAC Disbursement to candidates by Gender")
@@ -378,37 +378,37 @@ display_gender_charts(PAC_gender_df.iloc[0:2].sum().to_frame(name='recipients').
 
 # ## PAC disbursements based on racial diversity
 
-# In[23]:
+# In[14]:
 
 
 display_race_charts(race_df.iloc[2:3], "US Population by Race")
 
 
-# In[24]:
+# In[15]:
 
 
 display_race_charts(race_df.iloc[0:2], "Current Congress by Race")
 
 
-# In[25]:
+# In[16]:
 
 
 display_race_charts(PAC_race_df.iloc[0:2], "Percent of PAC Disbursements to Members of the 116th Congress by Race")
 
 
-# In[26]:
+# In[17]:
 
 
 display_race_charts(PAC_race_df.iloc[0:2].sum().to_frame(name='recipients').transpose(), "PAC Disbursement to candidates by Race")
 
 
-# In[28]:
+# In[18]:
 
 
 display_money_charts(PAC_money_race_df, "Amount of PAC Disbursements to Members of the 116th Congress by Race")
 
 
-# In[29]:
+# In[19]:
 
 
 df = PAC_merge_df.groupby('Race')['disbursement_amount'].sum().sort_values()
@@ -418,7 +418,7 @@ as_list[idx] = 'candidates not elected or other PACs or RNCC/DCCC'
 df.index = as_list
 
 
-# In[30]:
+# In[20]:
 
 
 display_bar(df)
