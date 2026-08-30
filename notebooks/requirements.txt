@@ -1,0 +1,9 @@
+# Pinned environment for running PAC_Inclusion_analysis.ipynb
+# Set up with:  python3 -m venv .venv && .venv/bin/pip install -r notebooks/requirements.txt
+# Register kernel: .venv/bin/python -m ipykernel install --user --name pac --display-name "Python (pac)"
+jupyterlab==4.6.3
+ipykernel==7.3.0
+pandas==2.2.3
+numpy==1.26.4
+matplotlib==3.9.4
+ipywidgets==8.1.6
